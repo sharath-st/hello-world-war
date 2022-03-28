@@ -1,0 +1,5 @@
+pipeline {
+     agent {label 'java'}
+     stages {
+     stage ('checkout') {
+         sh clone "
