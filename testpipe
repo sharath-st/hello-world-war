@@ -3,4 +3,14 @@ pipeline {
      stages {
         stage ('checkout') {
           steps {
-            sh "git clone
+            sh "git clone https://github.com/sharath-st/hello-world-war.git"
+            }
+           }
+        stage ('build') {
+          steps {
+            sh "mvn clean package"
+            }
+           }
+        stage ('deploy') {
+          steps {
+            sh "cp /home/slave2/jenkins/workspace/jenkins/target/hell0-world-war
