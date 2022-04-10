@@ -4,7 +4,7 @@ pipeline{
       stage('check out'){
                   steps{
                   sh "rm -rf hello-world-war"
-                  sh "https://github.com/sharath-st/hello-world-war.git"
+                  sh "git clone https://github.com/sharath-st/hello-world-war.git"
                   }
                   }
       stage('build'){
