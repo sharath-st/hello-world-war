@@ -1,20 +1,28 @@
 pipeline {
     agent any
+    environment {
+    DOCKERHUB_CREDENTIALS = credentials('dockerhub-sharath14')
+    }
     stages {
-        stage('checkout') { 
+        stage(' SCM checkout') { 
             steps {
               sh "git clone https://github.com/sharath-st/hello-world-war.git"
             }
         }
-stage('build') { 
+stage('build docker image') { 
             steps {
-              sh "mvn clean package"
+              sh "docker build -t sharath14/hell-world-war:$BUILD_NUMBER ."
             }
         }
-stage('deploy') {
+stage('login to dockerhub') {
             steps {
-            sh "cp /home/slave2/jenkins/workspace/jenkins/target/hello-world-war-1.0.0.war /opt/apache-tomcat-9.0.60/webapps"
+            sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
             }
         }
+ stage ('push image') {
+           steps {
+              sh 'docker push sharath14/hello-world-war:$BUILD_NUMBER'
       }        
     }
+   }
+  }
