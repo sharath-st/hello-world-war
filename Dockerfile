@@ -1,5 +1,5 @@
-FROM ubuntu:20.04
-RUN mkdir -p warfile
-RUN chmod -R 777 warfile
-WORKDIR warfile
-COPY hello-world-war-1.0.0.war
+FROM maven:3.8.2-openjdk-8
+RUN mkdir -p /var/test
+WORKDIR /var/test
+COPY . .
+RUN mvn clean package
