@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent {label "java-node"}
     environment {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub-sharath14')
     }
