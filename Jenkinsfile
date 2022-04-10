@@ -11,7 +11,7 @@ pipeline {
         }
 stage('build docker image') { 
             steps {
-              sh "docker build -t sharath14/hell-world-war:$BUILD_NUMBER ."
+              sh "docker build -t sharath14/hello-world-war:$BUILD_NUMBER ."
             }
         }
 stage('login to dockerhub') {
