@@ -12,13 +12,13 @@ pipeline{
       sh "pwd"
       sh "ls"
       sh "cd hello-world-war"
-      sh "docker build -t sharath-st/dockimage:1.0 ."
+      sh "docker build -t sharath14/dockimage:1.0 ."
       }
       }
        stage('publish'){
                   steps{
                         sh "docker login -u sharath14 -p Sharath@1408"
-                        sh "docker push sharath-st/dockimage:1.0"
+                        sh "docker push sharath14/dockimage:1.0"
                   }
             }
             stage('deploy'){
