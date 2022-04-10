@@ -26,7 +26,7 @@ stage('login to dockerhub') {
          }
  stage ('deploy') {
      steps {
-         sh 'cp /var/lib'
+         sh 'cp /var/lib/target/hello-world-war /usr/local/tomcat/webapps'
      }
     }
   }
