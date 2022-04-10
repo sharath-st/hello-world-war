@@ -22,7 +22,12 @@ stage('login to dockerhub') {
  stage ('push image') {
            steps {
               sh 'docker push sharath14/hello-world-war:$BUILD_NUMBER'
-      }        
+            }        
+         }
+ stage ('pull image') {
+     steps {
+         sh 'docker pull sharath14/hello-world-war:1'
+     }
     }
-   }
   }
+}
