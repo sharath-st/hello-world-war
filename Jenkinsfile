@@ -24,9 +24,14 @@ stage('login to dockerhub') {
               sh 'docker push sharath14/hello-world-war:$BUILD_NUMBER'
             }        
          }
+        stage ('run docker image') {
+            steps {
+               sh "docker run -it sharath14/hello-world-war:BUILD_NUMBER bash"
+            }
+        }
  stage ('deploy') {
      steps {
-         sh 'cp /var/lib/target/hello-world-war /usr/local/tomcat/webapps'
+         sh 'cp /var/lib/target/hello-world-war-1.0.1.war /usr/local/tomcat/webapps'
      }
     }
   }
