@@ -26,7 +26,7 @@ pipeline{
                   steps{
                         sh "docker login -u sharath14 -p Sharath@1408"
                         sh "docker pull sharath14/dockimage:$BUILD_NUMBER"
-                        sh "docker rm -f trail1"
+                        //sh "docker rm -f trail1"
                         sh "docker run -d -p 8085:8080 --name trail1 sharath14/dockimage:$BUILD_NUMBER"
                   }
             }
